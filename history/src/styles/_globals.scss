@@ -1,0 +1,40 @@
+// @import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
+
+// /* FARVER */
+// $color-bcc_brown: #5C1F06;
+// $color-bcc_white: #f9f9f9;
+// $color-light_brown: #d97852;
+// $color-beige: #d1b3a7;
+// $color-gray: #cccccc;
+// $color-black: #000000;
+
+// /* LIGHT THEME */
+// :root {
+//   --bg-color: #{$color-bcc_white};
+//   --text-color: #{$color-black};
+//   --card-bg: #ffffff;
+//   --accent-color: #{$color-light_brown};
+// }
+
+// /* DARK THEME */
+// [data-theme='dark'] {
+//   --bg-color: #111111;
+//   --text-color: #f9f9f9;
+//   --card-bg: #1c1c1c;
+//   --accent-color: #{$color-bcc_brown};
+// }
+
+:root {
+  --bg-dark: #0f0f0f;
+  --bg-light: #faf9f6;
+
+  --text-dark: #eae6d8;
+  --text-light: #1a1a1a;
+
+  --accent: #c9b37e;
+
+  --border-dark: #2a2a2a;
+  --border-light: #ddd;
+
+  --max-width: 900px;
+}

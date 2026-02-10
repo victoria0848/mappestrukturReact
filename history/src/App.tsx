@@ -1,34 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Routes, Route, NavLink } from 'react-router-dom'
+import { ThemeProvider } from './context/themeContext'
+
+import { Today } from './pages/today/today'
+import { ByDate } from './pages/byDate/byDate'
+import { Since } from './pages/since/since'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <ThemeProvider>
+      <header>
+        <nav>
+          <ul>
+            <li>
+              <NavLink to="/" end>
+                Today
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/by-date">
+                By Date
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/since">
+                Since
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        <Routes>
+          <Route path="/" element={<Today />} />
+          <Route path="/by-date" element={<ByDate />} />
+          <Route path="/since" element={<Since />} />
+        </Routes>
+      </main>
+
+      <footer>
+        <p>© History Project</p>
+      </footer>
+    </ThemeProvider>
   )
 }
 

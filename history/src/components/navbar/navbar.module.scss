@@ -1,0 +1,20 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  padding: 1.5rem 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  opacity: 0.6;
+  position: relative;
+}
+
+.active {
+  opacity: 1;
+  transform: translateY(-8px);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.3rem;
+}

@@ -1,0 +1,11 @@
+@use './styles/globals';
+@use './styles/reset';
+@use './styles/layout';
+@use './styles/timeline';
+
+body {
+  overflow-y: auto;
+  font-family: 'Playfair Display', serif;
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}

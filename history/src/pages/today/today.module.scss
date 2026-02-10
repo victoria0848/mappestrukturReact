@@ -1,0 +1,53 @@
+.page {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+/* Midterlinje */
+.page::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--accent);
+}
+
+/* EventCard placering */
+.page > article {
+  position: relative;
+  width: 40%;
+  margin-bottom: 3rem;
+}
+
+/* Skiftevis venstre / højre */
+.page > article:nth-child(odd) {
+  margin-left: 0;
+  text-align: right;
+}
+
+.page > article:nth-child(even) {
+  margin-left: auto;
+}
+
+/* Timeline prik */
+.page > article::before {
+  content: '';
+  position: absolute;
+  top: 0.3rem;
+  left: calc(100% + 24px);
+  width: 12px;
+  height: 12px;
+  background: var(--bg-dark);
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+}
+
+/* Juster prik på højre side */
+.page > article:nth-child(even)::before {
+  left: auto;
+  right: calc(100% + 24px);
+}

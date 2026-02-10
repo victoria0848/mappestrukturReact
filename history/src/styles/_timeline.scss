@@ -1,0 +1,40 @@
+.timeline {
+  position: relative;
+  margin-top: 3rem;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--accent);
+}
+
+.event {
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.event::before {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: 0.3rem;
+  width: 12px;
+  height: 12px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.event h3 {
+  margin: 0 0 0.5rem;
+}
+
+.event p {
+  margin: 0;
+  opacity: 0.85;
+}
