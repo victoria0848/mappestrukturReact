@@ -3,9 +3,43 @@
 @use './styles/layout';
 @use './styles/timeline';
 
+html,
+body,
+#root {
+  height: 100%;
+}
+
+/* DEFAULT FALLBACK */
+:root {
+  --bg: #0f0f0f;
+  --text: #eae6d8;
+  --accent: #c9b37e;
+}
+
+/* DARK MODE */
+.dark {
+  --bg: #0f0f0f;
+  --text: #eae6d8;
+  --accent: #c9b37e;
+}
+
+/* LIGHT MODE */
+.light {
+  --bg: #f5f3ed;
+  --text: #1a1a1a;
+  --accent: #8b6f3d;
+}
+
 body {
   overflow-y: auto;
   font-family: 'Playfair Display', serif;
-  background: var(--bg-dark);
-  color: var(--text-dark);
+  background: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0;
+}
+
+main {
+  position: relative;
+  min-height: 100vh;
 }

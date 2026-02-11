@@ -1,13 +1,12 @@
-import { useContext } from 'react'
-import { ThemeContext } from '../../context/themeContext'
+import { useTheme } from '../../context/themeContext'
 import styles from './themeToggle.module.scss'
 
 export function ThemeToggle() {
-  const { theme, toggleTheme } = useContext(ThemeContext)
+  const { toggleTheme } = useTheme()
 
   return (
-    <button className={styles.toggle} onClick={toggleTheme}>
-      {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
+    <button onClick={toggleTheme} className={styles.toggle}>
+      ●
     </button>
   )
 }

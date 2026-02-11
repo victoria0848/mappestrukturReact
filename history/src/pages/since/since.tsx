@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { PageHeader } from '../../components/header/header'
+import { Navigation } from '../../components/navbar/navbar'
 import { useHistory } from '../../hooks/useHistory'
 import { EventCard } from '../../components/eventCard/eventcard'
-import styles from './since.module.scss'
+import { BackToTop } from '../../components/backToTop/backToTop'
+import styles from './Since.module.scss'
 
 export function Since() {
   const [year, setYear] = useState<number>(1900)
@@ -20,34 +22,42 @@ export function Since() {
   )
 
   return (
-    <section className={styles.page}>
+    <>
       <PageHeader
-      title="SINCE"
-      subtitle={`SINCE ${year}`}
-      image="/images/header.jpg"
+        title="SINCE"
+        subtitle={`SINCE ${year}`}
+        image="/images/header.jpg"
       />
 
-        <label>
-          Vis begivenheder siden år
-          <input
-            type="number"
-            value={year}
-            onChange={(e) => setYear(Number(e.target.value))}
-          />
-        </label>
+      <Navigation />
 
-      {loading && <p>Loading...</p>}
+      <section className={styles.page}>
+        <div className={styles.controls}>
+          <label>
+            Show events since year
+            <input
+              type="number"
+              value={year}
+              onChange={(e) => setYear(Number(e.target.value))}
+            />
+          </label>
+        </div>
 
-      <div className={styles.list}>
-        {filteredEvents.map((event, index) => (
-          <EventCard
-            key={index}
-            year={event.year}
-            text={event.text}
-            link={event.links[0]?.link}
-          />
-        ))}
-      </div>
-    </section>
+        {loading && <p>Loading...</p>}
+
+        <div className={styles.list}>
+          {filteredEvents.map((event, index) => (
+            <EventCard
+              key={index}
+              year={event.year}
+              text={event.text}
+              link={event.links[0]?.link}
+            />
+          ))}
+        </div>
+
+        <BackToTop />
+      </section>
+    </>
   )
 }

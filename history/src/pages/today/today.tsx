@@ -3,6 +3,7 @@ import { EventCard } from '../../components/eventCard/eventcard'
 import { BackToTop } from '../../components/backToTop/backToTop'
 import { PageHeader } from '../../components/header/header'
 import styles from './today.module.scss'
+import { Navigation } from '../../components/navbar/navbar'
 
 export function Today() {
   const today = new Date()
@@ -22,6 +23,8 @@ export function Today() {
         subtitle={`${day}/${month}`}
         image="/images/header.jpg"
       />
+
+      <Navigation />
 
       <section className={styles.page}>
         {data.map((event, i) => (

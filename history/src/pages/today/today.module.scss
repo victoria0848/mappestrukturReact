@@ -51,3 +51,20 @@
   left: auto;
   right: calc(100% + 24px);
 }
+
+@media (max-width: 768px) {
+  .page::before {
+    left: 10px;
+  }
+
+  .page > article {
+    width: 100%;
+    margin-left: 2rem !important;
+    text-align: left !important;
+  }
+
+  .page > article::before {
+    left: -18px !important;
+    right: auto !important;
+  }
+}

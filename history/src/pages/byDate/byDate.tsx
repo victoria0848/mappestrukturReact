@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { PageHeader } from '../../components/header/header'
+import { Navigation } from '../../components/navbar/navbar'
 import { useHistory } from '../../hooks/useHistory'
 import { EventCard } from '../../components/eventCard/eventcard'
+import { BackToTop } from '../../components/backToTop/backToTop'
 import styles from './ByDate.module.scss'
 
 export function ByDate() {
@@ -13,46 +15,55 @@ export function ByDate() {
   )
 
   return (
-    <section className={styles.page}>
+    <>
       <PageHeader
         title="BY DATE"
         subtitle={`ON ${day} / ${month}`}
         image="/images/header.jpg"
       />
-        <label>
-          Dag
-          <input
-            type="number"
-            min="1"
-            max="31"
-            value={day}
-            onChange={(e) => setDay(Number(e.target.value))}
-          />
-        </label>
 
-        <label>
-          Måned
-          <input
-            type="number"
-            min="1"
-            max="12"
-            value={month}
-            onChange={(e) => setMonth(Number(e.target.value))}
-          />
-        </label>
+      <Navigation />
 
-      {loading && <p>Loading...</p>}
+      <section className={styles.page}>
+        <div className={styles.controls}>
+          <label>
+            Day
+            <input
+              type="number"
+              min="1"
+              max="31"
+              value={day}
+              onChange={(e) => setDay(Number(e.target.value))}
+            />
+          </label>
 
-      <div className={styles.list}>
-        {data.map((event, index) => (
-          <EventCard
-            key={index}
-            year={event.year}
-            text={event.text}
-            link={event.links[0]?.link}
-          />
-        ))}
-      </div>
-    </section>
+          <label>
+            Month
+            <input
+              type="number"
+              min="1"
+              max="12"
+              value={month}
+              onChange={(e) => setMonth(Number(e.target.value))}
+            />
+          </label>
+        </div>
+
+        {loading && <p>Loading...</p>}
+
+        <div className={styles.list}>
+          {data.map((event, index) => (
+            <EventCard
+              key={index}
+              year={event.year}
+              text={event.text}
+              link={event.links[0]?.link}
+            />
+          ))}
+        </div>
+
+        <BackToTop />
+      </section>
+    </>
   )
 }
